@@ -1,0 +1,47 @@
+ .user-delete-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .member_profile{
+  font-size: 30px;
+  color: #7F7E7E;
+  padding: 10px;
+ }
+ .inputstyleid{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .user-font{
+  font-size: 18px;
+  text-align: center;
+ }
+ .user-info-delete{
+  width: 150px;
+  height: 35px;
+  margin-top: 10px;
+  margin-left: 70px;
+  background: #FF2121;
+  border: 1px solid #FF2121;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+ }
+ .user-info-delete:hover{
+  background: #A51616;
+  border: 1px solid #A51616;
+  cursor: pointer;
+ }
+ fieldset{
+  width: 400px;
+ }

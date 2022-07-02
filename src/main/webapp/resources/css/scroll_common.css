@@ -1,0 +1,121 @@
+
+/* Main Visual ふわっと浮き上がるアニメ */
+/* ---------------------------- */
+.catch{
+    display:none;
+  }
+
+/* スクロールすると中央へ寄る動きをするアニメ */
+/* ---------------------------- */
+
+.mv_fade_in{
+    display: block;
+    padding: 20px;
+    background-color: cadetblue;
+}
+
+.fade_in{
+    margin-left: 10%;
+    margin-top: 10%;
+    width: 30%;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; 
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 3px solid #959595;
+    padding: 50px;
+}
+
+.custom-font{
+	text-align: center;
+	color: #B3B3B3; 
+	font-size: 2em;
+	overflow: hidden;
+    text-overflow: clip;
+}
+.fade_in:hover{
+	cursor: pointer;
+	background-color: #ECECEC;
+	border: 5px solid #C4C9FC;
+}
+/* アニメーションスタイル 右から中央へ*/
+/* ---------------------------- */
+
+/* アニメーション前 */
+.u-fade-type-left{
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+/* トリガー発火でis-activeを付与 */
+.u-fade-type-left.is-active{
+    transition: 1s;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* アニメーションスタイル 右から中央へ*/
+/* ---------------------------- */
+
+/* アニメーション前 */
+.u-fade-type-right{
+    transform: translateX(100px);
+    opacity: 0;
+}
+
+/* トリガー発火でis-activeを付与 */
+.u-fade-type-right.is-active{
+    transition: 1s;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* メインビジュアル　動くアニメ */
+/* ---------------------------- */
+
+/* アニメーションスタイル 上から下へ*/
+/* ---------------------------- */
+
+/* アニメーション前 */
+.u-fade-type-down{
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+/* トリガー発火でis-activeを付与 */
+.u-fade-type-down.is-active{
+    transition: 2s;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* アニメーションスタイル 下から上へ*/
+/* ---------------------------- */
+
+/* アニメーション前 */
+.u-fade-type-up{
+    transform: translateY(-100px);
+    opacity: 0;
+}
+
+/* トリガー発火でis-activeを付与 */
+.u-fade-type-up.is-active{
+    transition: 2s;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* アニメーションスタイル 位置固定*/
+/* ---------------------------- */
+
+/* アニメーション前 */
+.u-fade-type-static{
+    opacity: 0;
+}
+
+/* トリガー発火でis-activeを付与 */
+.u-fade-type-static.is-active{
+    transition: 2s;
+    opacity: 1;
+}

@@ -1,0 +1,36 @@
+  nav{
+  width: 250px;
+  background-color: #3E79D2;
+  position: fixed;
+  height: 100%;
+ }
+ .pagename{
+  font-size: 50px;
+  padding: 5;
+  text-decoration: none;
+  color: white;
+  display: block;
+ }
+ ul li{
+  list-style: none;
+ }
+ .menuKind ul li a{
+  height: 60px;
+  line-height: 50px;
+  display: inline;
+  padding: 0;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+ }
+
+ .menuLogin ul li a{
+  float: left;
+  margin-right: 10px;
+  width: 80px;
+  height: 30px;
+  padding: 5px;
+  border-color: #3E79D2;
+  text-decoration: none;
+  color: white;
+ }

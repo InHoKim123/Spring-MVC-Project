@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="in.spring.project">
+<!-- 게시글 전체 검색 -->
+<select id="PostSelectAll" resultType="PostDTO">
+	select m.attachedfile, m.nicname, p.postnum, p.postname, p.postpasswd, p.postcontent, p.postwriter, to_char(p.postwriteday, 'YY/MM/DD') as postwriteday, p.views, p.postkind from post p, member m
+	where p.postwriter = m.nicname
+	order by postnum desc
+</select>
+
+<!-- 게시글 상세보기 -->
+<select id="PostSelectDetail" resultType="PostDTO" parameterType="PostDTO">
+	select m.attachedfile, m.nicname, p.postnum, p.postname, p.postpasswd, p.postcontent, p.postwriter, to_char(p.postwriteday, 'YY/MM/DD') as postwriteday, p.views, p.postkind from post p, member m
+	where p.postwriter = m.nicname and postnum = #{postnum} 
+</select>
+
+<!-- 게시글 작성 -->
+<insert id="PostInsert" parameterType="PostDTO">
+	insert into post
+	values(post_seq.nextval, #{postname}, #{postpasswd}, #{postcontent}, #{postwriter}, sysdate, 0, #{postkind})
+</insert>
+
+
+<!-- 게시글 수정 -->
+<update id="PostUpdate" parameterType="PostDTO">
+	update post
+	set postname = #{postname}, postcontent = #{postcontent}, postkind = #{postkind}
+	where postnum = #{postnum}
+</update>
+
+<!-- 게시글 삭제 -->
+<delete id="PostDelete" parameterType="PostDTO">
+	delete post
+	where postnum = #{postnum}
+</delete>
+<!-- 조회수 증가 -->
+<update id="PostViewUpdate" parameterType="PostDTO">
+	update post 
+	set views = views+1
+	where postnum = #{postnum}
+</update>
+</mapper>

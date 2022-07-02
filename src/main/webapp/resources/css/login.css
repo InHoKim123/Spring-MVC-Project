@@ -1,0 +1,91 @@
+ .user-LoginPage{
+  position: relative;
+  left: 75%;
+  transform: translate(-50%);
+ }
+ fieldset{
+  width: 600px;
+  border: 0;
+ }
+ .LoginMain{
+  border: 1px solid #7F7E7E;
+  padding: 10px;
+ }
+ .inputstyleid{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .inputstylepd{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .inputlogin{
+  width: 30rem;
+  height: 35px;
+  margin-left: 40px;
+  margin-top: 10px;
+  background: #3E79D2;
+  border: 1px solid #3E79D2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+ }
+ .inputlogin:hover{
+  background: #2A5BA4;
+  border: 1px solid #2A5BA4;
+  cursor: pointer;
+ }
+ .inputlogin:focus{
+  outline:0;
+ }
+ font{
+  font-size: 30px;
+  color: #7F7E7E;
+ }
+ .fontid{
+  text-align: center;
+  font-size: 17px;
+  color: #7F7E7E;
+ }
+ .doLogin{
+  cursor: pointer;
+  margin-right: 25px;
+ }
+ .user-sign{
+  margin-left: 200px;
+  color: #7F7E7E;
+ }
+ .user-find {
+  text-decoration: none;
+  color: #3E79D2;
+  font-size: 14px;
+ }
+ .user-insert{
+  text-decoration: none;
+  color: #3E79D2;
+  font-size: 14px;
+ }
+ .user-find:hover {
+	text-decoration: underline;
+ }
+ .user-insert:hover {
+	text-decoration: underline;
+ }
+

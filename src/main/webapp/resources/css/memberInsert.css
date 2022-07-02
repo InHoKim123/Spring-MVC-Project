@@ -1,0 +1,200 @@
+ .user-insert{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ fieldset{
+  width: 400px;
+  border: 0;
+ }
+ font{
+  font-size: 30px;
+  color: #7F7E7E;
+ }
+ .insertMain{
+  border: 1px solid #7F7E7E;
+  padding: 10px;
+ }
+ .inputid{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 23rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .inputid:focus{
+  border-color:#0982f0;
+  outline: none;
+ }
+ .idbtn{
+  width: 5rem;
+  height: 35px;
+  background: #3E79D2;
+  border: 1px solid #3E79D2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+ }
+ .idbtn:hover{
+  background: #2A5BA4;
+  border: 1px solid #2A5BA4;
+  cursor: pointer;
+ }
+ .inputpd{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .inputpd:focus{
+  border-color:#0982f0;
+  outline: none;
+ }
+ .inputname{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .inputname:focus{
+  border-color:#0982f0;
+  outline: none;
+ }
+ .inputemail{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .inputemail:focus{
+  border-color:#0982f0;
+  outline: none;
+ }
+ .inputnic{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .inputnic:focus{
+  border-color:#0982f0;
+  outline: none;
+ }
+ .mannum{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .mannum:focus{
+  border-color:#0982f0;
+  outline: none;
+ }
+ .inputdate{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .inputdate:focus{
+  border-color:#0982f0;
+  outline: none;
+ }
+ .memtech{
+  margin-left: 40px;
+  margin-bottom: 5px;
+  width: 30rem;
+  height: 40px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .memtech:focus {
+  border-color:#0982f0;
+  outline: none;
+ }
+ .insert_user_email{
+  text-align: center;
+  font-size: 17px;
+  color: #7F7E7E;
+ }
+ .doemail{
+  cursor: pointer;
+  margin-left: 40px;
+ }
+ .inputsuc{
+  width: 300px;
+  height: 35px;
+  margin-left: 100px;
+  margin-top: 10px;
+  background: #3E79D2;
+  border: 1px solid #3E79D2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+ }
+ .inputsuc:hover {
+  background: #2A5BA4;
+  border: 1px solid #2A5BA4;
+  cursor: pointer;
+ }
+ .profileupdate{
+  width: 200px;
+  height: 45px;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  margin-left: 40px;
+  border: 1px solid #57BC4C;
+  background-color: #57BC4C;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .profileupdate:hover {
+  background-color: #4DA23B;
+  cursor: pointer;
+}

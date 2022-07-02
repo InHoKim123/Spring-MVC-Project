@@ -1,0 +1,49 @@
+
+ tr.memberdetail:hover{
+  background-color: #f1f1f1;
+  cursor: pointer;
+ }
+ fieldset{
+  position: relative;
+  left: 30%;
+  transform: translate(-50%);
+  width: 70%;
+ }
+ .member_profile{
+  font-size: 30px;
+  color: #7F7E7E;
+  padding: 10px;
+ }
+
+ .user-selectmember{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1500px;
+ }
+ .search_input{
+  width: 200px;
+  height: 40px;
+ }
+ .search_submit{
+  width: 150px;
+  height: 40px;
+  background: #3E79D2;
+  border: 1px solid #3E79D2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+ }
+ .search_submit:hover{
+  background: #2A5BA4;
+  border: 1px solid #2A5BA4;
+  cursor: pointer;
+ }
+ .search_memberDetail{
+  width: 150px;
+  height: 30px;
+  font-size: 16px;
+ }

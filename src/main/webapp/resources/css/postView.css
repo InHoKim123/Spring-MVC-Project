@@ -1,0 +1,118 @@
+ body{
+  background: #f1f1f1;
+ }
+.con{
+ background: white; 
+ padding: 10px;
+}
+
+.title {
+	margin-left: 40px;
+}
+.title font {
+	font-size: 50px;
+}
+#writer{
+ border;
+ font-size: 25px;
+ margin-left: 40px;
+ margin-bottom: 20px;
+}
+#comwriter{
+ border;
+ font-size: 15px;
+ margin-bottom: 5px;
+}
+.profilepic{
+  margin-top: 20px;
+  width: 100px;
+  height : 100px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+.compro{
+  margin-left: 20px;
+  width: 40px;
+  height : 40px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+#contents{
+ margin-left: 20px;
+ margin-right: 20px;
+ margin-bottom: 20px;
+}
+fieldset{
+ width: 1000px;
+ border: 0;
+}
+#comment font{
+ font-size: 25px;
+ margin-left: 30px;
+}
+.comsub{
+ width: 100px;
+ height: 50px;
+}
+.list{
+ margin-left: 610px;
+ width: 100px;
+ height: 50px;
+}
+textarea{
+ font-size: 15px;
+}
+#mycom{
+ margin-top : 10px;
+ margin-left: 70px;
+}
+#retouch{
+  width: 100px;
+  height: 35px;
+  font-size: 16px;
+  margin-left: 20px;
+  color: white;
+  border: 1px solid #57BC4C;
+  background-color: #57BC4C;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#retouch:hover{
+  background-color: #4DA23B;
+  border: 1px solid #4DA23B;
+  cursor: pointer;
+}
+#deletepost{
+  width: 100px;
+  height: 35px;
+  margin-top: 10px;
+  background: #FF2121;
+  border: 1px solid #FF2121;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+}
+#deletepost:hover{
+  background: #A51616;
+  border: 1px solid #A51616;
+  cursor: pointer;
+}
+ .read-post{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .write-comment{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .postnumtxt{
+  font-size: 18px;
+  color: #6E6E6E;
+ }

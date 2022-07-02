@@ -1,0 +1,128 @@
+ body{
+  background-color: #F9F9F9;
+ }
+ fieldset{
+  width: 900px;
+  border: 0;
+  margin-top: 50px;
+  margin-left: 100px;
+ }
+ #viewpost:hover{
+  background-color: #f1f1f1;
+  cursor: pointer;
+ }
+ .user-selectpost{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .select_post{
+  font-size: 30px;
+  color: #7F7E7E;
+  padding: 10px;
+ }
+ .search_submit{
+  margin-left: 300px;
+ }
+ .writepost{
+  margin-left: 600px;
+  margin-bottom: 20px;
+ }
+ .writepostbtn{
+  width: 180px;
+  height: 40px;
+  font-size: 20px;
+  color: white;
+  border: 1px solid #57BC4C;
+  background-color: #57BC4C;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .writepostbtn:hover{
+  background-color: #4DA23B;
+  cursor: pointer;
+ }
+ .postkind{
+  width: 120px;
+  height: 30px;
+ }
+ .postwriter{
+  width: 180px;
+  height: 30px;
+  font-size: 16px;
+ }
+ .postwritersub{
+  width: 80px;
+  height: 40px;
+  background: #3E79D2;
+  border: 1px solid #3E79D2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+ }
+ .postwritersub:hover {
+  background: #2A5BA4;
+  border: 1px solid #2A5BA4;
+  cursor: pointer;
+ }
+ .profilepic{
+  width: 30px;
+  height : 30px;
+  border-radius: 70%;
+  overflow: hidden;
+  margin-left: 40px;
+ }
+ .viewpic{
+  width: 20px;
+  height : 20px;
+  border-radius: 70%;
+  overflow: hidden;
+  margin-left: 50px;
+ }
+ 
+ 
+ .postnum{
+  font-size: 14px;
+  color: #818181;
+  font-style: oblique;
+ }
+ .postlist{
+  background-color: white;
+  padding: 10px;
+ }
+ .postlist:hover{
+  background-color: #EFEFEF;
+  cursor: pointer;
+ }
+ .posttitleset{
+  font-size: 18px;
+  color: #3E79D2;
+ }
+ .posttitlenotice{
+  font-size: 18px;
+  color: #fe0101;
+ }
+ .views{
+  color: #6E6E6E;
+  font-size: 16px;
+ }
+ .writeoption{
+  margin-right: 10px;
+ }
+ .writernic{
+  font-size: 16px;
+  color: #3E79D2;
+ }
+ .writetime{
+  font-size: 12px;
+  color: #6E6E6E;
+ }
+ .detail{
+  float: right;
+ }

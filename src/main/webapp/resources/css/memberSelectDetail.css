@@ -1,0 +1,110 @@
+ img.profilepic{
+  width: 150px;
+  height : 150px;
+  border-radius: 70%;
+  overflow: hidden;
+  margin-left: 50px;
+ }
+ 
+ button.btn{
+  position: relative;
+  left: 20px;
+  top : 50px;
+  width: 150px;
+  height: 30px;
+ }
+ fieldset{
+  width: 400px;
+  border: 0;
+ }
+ ul li{
+  list-style: none;
+ }
+ ul li #user-name{
+  font-size: 30px;
+  font-weight: bold;
+ }
+ ul li #user-num{
+  font-size: 18px;
+  color: #818181;
+ }
+ .user-info{
+  margin-left: 170px;
+ }
+ .user-font{
+  font-size: 18px;
+  text-align: center;
+ }
+ .inputstyleid{
+  margin-left: 40px;
+  width: 300px;
+  height: 30px;
+  border: 1px solid #7F7E7E;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 20px;
+ }
+ .user-profile{
+  border: 1px solid #7F7E7E;
+  padding: 10px;
+ }
+ .user-info-update{
+  width: 150px;
+  height: 35px;
+  margin-left: 40px;
+  margin-top: 10px;
+  background: #3E79D2;
+  border: 1px solid #3E79D2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+ }
+ .user-info-update:hover {
+  background: #2A5BA4;
+  border: 1px solid #2A5BA4;
+  cursor: pointer;
+ }
+ .user-info-delete{
+  width: 150px;
+  height: 35px;
+  margin-top: 10px;
+  background: #FF2121;
+  border: 1px solid #FF2121;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  font-size: 16px;
+ }
+ .user-info-delete:hover{
+  background: #A51616;
+  border: 1px solid #A51616;
+  cursor: pointer;
+ }
+ .user-update-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .profileupdate{
+  width: 120px;
+  height: 40px;
+  font-size: 20px;
+  color: white;
+  border: 1px solid #57BC4C;
+  background-color: #57BC4C;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+ }
+ .profileupdate:hover {
+  background-color: #4DA23B;
+  cursor: pointer;
+}
