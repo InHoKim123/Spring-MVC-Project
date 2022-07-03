@@ -1,5 +1,6 @@
 package in.spring.project.post.controller;
 
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import in.spring.project.post.dto.PostDTO;
 import in.spring.project.post.service.PostService;
+import in.spring.project.reply.dto.ReplyDTO;
+import in.spring.project.reply.service.ReplyService;
+
 
 @Controller
 public class PostController {
@@ -19,6 +25,8 @@ public class PostController {
 
 	@Autowired
 	private PostService postService;
+	@Autowired
+	private ReplyService replyService;
 	//게시글 전체 검색
 	@RequestMapping(value = "PostSelectAll", method = RequestMethod.GET)
 	public String postlist(Model model) {
@@ -70,4 +78,23 @@ public class PostController {
 		postService.PostDelete(postDTO.getPostnum());
 		return "./post/post_delete_view";
 	}
+	
+	@RequestMapping(value = "Reply", method = RequestMethod.GET)
+	@ResponseBody
+	public List<ReplyDTO> replylist(@RequestParam("pnum") int pnum) {
+		ReplyDTO replyDTO = new ReplyDTO();
+		//dto에 글 번호 저장
+		replyDTO.setPnum(pnum);
+		//댓글 가져오기
+		return replyService.replylist(replyDTO);
+		
+	}
+	
+	@RequestMapping(value = "ReplyInsert", method = RequestMethod.POST)
+	public String insertReply(@RequestParam("pnum") int pnum, ReplyDTO replyDTO) {
+		replyService.insertReply(replyDTO);
+		return "redirect:/PostSelectDetail?postnum=" + pnum;
+	}
+	
+
 }

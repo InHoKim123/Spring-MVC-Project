@@ -11,6 +11,50 @@
 <script src="./js/jquery-3.5.1.min.js" type="text/javascript"></script>
 <script src="./js/bootstrap.min.js" type="text/javascript"></script>
 <title>게시판</title>
+<script type="text/javascript">
+$(document).ready(function(){
+	var pnum = $('input[name=pnum]').val();
+	
+	$.ajax({
+		url : "./Reply",
+   		type : "GET",
+   		data : {
+   			"pnum" : pnum
+   			},
+   		success: function(result){
+   			console.log(pnum);
+   			console.log(result);
+   			var comments = "";
+   			//작성된 댓글이없다면..
+   			if (result.length < 1) {
+				comments += "작성된 댓글이 없습니다.";
+				$("#replylist").html(comments);
+			}else {
+				for (var i = 0; i < result.length; i++) {
+	   				comments += "<span id='comwriter'>";
+	   				comments += "<span> <font> 작성자 : </font></span>";
+	   				comments += "<span><font>" + result[i].replywriter + "</font></span>";
+					comments += "<span><font>" + " | " + "</font></span>";
+					comments += "<span><font>" + result[i].replyday + "</font></span>"
+	   				comments += "</span>";
+	   				comments += "</div>";
+	   				comments += "<div id='mycom'>";
+	   				comments += "<font>" + result[i].replycontent + "</font>";
+	   				comments += "</div>";
+	   				comments += "<hr>";
+					$("#replylist").html(comments);
+
+				}
+			}
+   			
+   			   			
+   		}
+	});
+});
+
+
+
+</script>
 </head>
 <body id="body-pd">
 <div id="wrap">
@@ -125,54 +169,35 @@
 	
  </form>
  <!-- 댓글 : 나중에 만들거임-->
- <form action="#" method="post" enctype="application/x-www-form-urlencoded">
+ 
   <div class="write-comment">
 	<fieldset>
+	
 	<div class="con">
+	<form action="./ReplyInsert" method="post">
 		<div id="comment">
 		 <font> 답글 </font>
 		</div>		
 		<div>
-		 <span> <textarea rows="5" cols="100" name="comment"></textarea> </span> 
+		<input type="hidden" name="replywriter" id="replywriter" value="${sessionScope.senic }">
+		<input type="hidden" name="pnum" id="pnum" value="${postSelectDetail.postnum}">
+		<input type="hidden" id="replyday" name="replyday">
+		 <span> <textarea rows="5" cols="100" id="replycontent" name="replycontent"></textarea> </span> 
 		</div>
 		<div>
 		 <span> <input type="submit" value="댓글작성" class="comsub"></span>
-		 <span> <button type="button" onclick="location.href='./PostSelectAll'" class="list">글 목록</button> </span>
-		 <input type="hidden" name="commentwritetime" value="2022-04-01">
+		 <span> <button type="button" onclick="location.href='./PostSelectAll'" class="list">글 목록</button> </span>	 
 		</div>
 		<hr>
-		
-		<div>
-		 <span id="comwriter">
-		 	<span> <img class="compro" alt="프로필사진" src="./img/dog.jpg"> </span>
-			<span> <font> 작성자 : </font></span>
-			<span> <font> 김인호 </font></span>
-			<span> <font> | </font></span>
-			<span> <font> 2022-04-01 </font></span>
-		 </span>
-		</div>
-		<div id="mycom">
-		 <font> 좋은글 감사합니다. </font>
-		</div>
-		<hr>
-		<div>
-		 <span id="comwriter">
-		 	<span> <img class="compro" alt="프로필사진" src="./img/dog.jpg"> </span>
-			<span> <font> 작성자 : </font></span>
-			<span> <font> 홍길동 </font></span>
-			<span> <font> | </font></span>
-			<span> <font> 2022-04-01 </font></span>
-		 </span>
-		</div>
-		<div id="mycom">
-		 <font> css 어렵네요 </font>
-		</div>
-		<hr>
-		
-      </div>
-	 </fieldset>
-	</div>
 	</form>
+		<div id="replylist"></div>
+	</div>
+	
+	</fieldset>
+	</div>
+	
+		
+      
    	</div>	
 
 	<footer> <p class="footercla">Copyright KimInHo © 2022 SpringProject </p> </footer>

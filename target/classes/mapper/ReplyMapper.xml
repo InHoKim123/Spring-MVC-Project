@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="in.spring.project">
+	<select id="Reply" resultType="ReplyDTO">
+		select pnum, replynum, replycontent, replywriter, replyday
+		from reply
+		where pnum = #{pnum}
+	</select>
+	<insert id="ReplyInsert" parameterType="ReplyDTO">
+		insert into reply(pnum, replynum, replycontent, replywriter, replyday)
+		values(#{pnum}, reply_seq.nextval, #{replycontent}, #{replywriter}, sysdate)
+	</insert>
+</mapper>

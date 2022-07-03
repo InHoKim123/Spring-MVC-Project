@@ -4,6 +4,7 @@
 	<typeAliases>
 		<typeAlias alias="MemberDTO" type="in.spring.project.member.dto.MemberDTO"/>
 		<typeAlias alias="PostDTO" type="in.spring.project.post.dto.PostDTO"/>
+		<typeAlias alias="ReplyDTO" type="in.spring.project.reply.dto.ReplyDTO"/>
 	</typeAliases>
 	
 	
