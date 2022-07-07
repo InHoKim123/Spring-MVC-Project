@@ -101,5 +101,56 @@ STORAGE
 NOPARALLEL;
 
 ---------------------------------------------------------------------------------------------------
+[댓글 테이블]
+
+CREATE TABLE REPLY 
+(
+  PNUM NUMBER NOT NULL 
+, REPLYNUM NUMBER NOT NULL 
+, REPLYCONTENT VARCHAR2(100 BYTE) 
+, REPLYWRITER VARCHAR2(50 BYTE) 
+, REPLYDAY DATE DEFAULT sysdate 
+, CONSTRAINT REPLY_PK PRIMARY KEY 
+  (
+    REPLYNUM 
+  )
+  USING INDEX 
+  (
+      CREATE UNIQUE INDEX REPLY_PK ON REPLY (REPLYNUM ASC) 
+      LOGGING 
+      TABLESPACE USERS 
+      PCTFREE 10 
+      INITRANS 2 
+      STORAGE 
+      ( 
+        INITIAL 65536 
+        NEXT 1048576 
+        MINEXTENTS 1 
+        MAXEXTENTS UNLIMITED 
+        BUFFER_POOL DEFAULT 
+      ) 
+      NOPARALLEL 
+  )
+  ENABLE 
+) 
+LOGGING 
+TABLESPACE USERS 
+PCTFREE 10 
+INITRANS 1 
+STORAGE 
+( 
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1 
+  MAXEXTENTS UNLIMITED 
+  BUFFER_POOL DEFAULT 
+) 
+NOPARALLEL;
+
+
+---------------------------------------------------------------------------------------------------
 [게시판 시퀀스]
  CREATE SEQUENCE  "SCOTT"."POST_SEQ"  MINVALUE 1 MAXVALUE 9999 INCREMENT BY 1 START WITH 250 CACHE 20 NOORDER  NOCYCLE ;
+ ---------------------------------------------------------------------------------------------------
+ [댓글 시퀀스]
+CREATE SEQUENCE  "SCOTT"."REPLY_SEQ"  MINVALUE 1 MAXVALUE 99999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
