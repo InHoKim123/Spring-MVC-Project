@@ -13,47 +13,167 @@
 <title>게시판</title>
 <script type="text/javascript">
 $(document).ready(function(){
+	replylist();
+});
+
+//댓글 목록 불러오기
+function replylist(){
 	var pnum = $('input[name=pnum]').val();
-	
+	var senic = '<%=(String)session.getAttribute("senic")%>';
+	var id = '<%=(String)session.getAttribute("id")%>';
 	$.ajax({
 		url : "./Reply",
    		type : "GET",
    		data : {
    			"pnum" : pnum
+   			
    			},
    		success: function(result){
-   			console.log(pnum);
-   			console.log(result);
-   			var comments = "";
+   			var comments = "";  			
    			//작성된 댓글이없다면..
    			if (result.length < 1) {
 				comments += "작성된 댓글이 없습니다.";
 				$("#replylist").html(comments);
 			}else {
+				
 				for (var i = 0; i < result.length; i++) {
-	   				comments += "<span id='comwriter'>";
-	   				comments += "<span> <font> 작성자 : </font></span>";
-	   				comments += "<span><font>" + result[i].replywriter + "</font></span>";
-					comments += "<span><font>" + " | " + "</font></span>";
-					comments += "<span><font>" + result[i].replyday + "</font></span>"
+					//결과값을 담아준다. => 선택한 글의 번호에 해당하는 댓글 목록
+					var replylist = result[i];
+	   				comments += '<span id="comwriter' + replylist.replynum +'">';
+	   				comments += "<input id='replynum' class='replynum' type='hidden' value=" + replylist.replynum + "></input>";
+	   				comments += "<span>작성자 : </span>";
+	   				comments += "<span>" + replylist.replywriter + "</span>";
+					comments += "<span>" + " | " + "</span>";
+					comments += "<span>" + replylist.replyday + "</span>";
+					comments += "<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+					//댓글 수정, 삭제는 작성자 또는 관리자만 할 수 있음
+					if (senic == replylist.replywriter) {
+						comments += '<span><button type="button" id="retouchreply" onclick="replyUpdate(' + replylist.replynum +',\''+ replylist.replywriter +'\',\''+ replylist.replyday +'\',\''+ replylist.replycontent +'\')">수정</button></span>';
+						comments += "<span>&nbsp;&nbsp;</span>";
+						comments += '<span><button type="button" id="deletepostreply" onclick="replyDelete('+replylist.replynum+')">삭제</button></span>';
+					}else if (id == 'admin') {
+						comments += '<span><button type="button" id="retouchreply" onclick="replyUpdate(' + replylist.replynum +',\''+ replylist.replywriter +'\',\''+ replylist.replyday +'\',\''+ replylist.replycontent +'\')">수정</button></span>';
+						comments += "<span>&nbsp;&nbsp;</span>";
+						comments += '<span><button type="button" id="deletepostreply" onclick="replyDelete('+replylist.replynum+')">삭제</button></span>';
+					}
+					comments += "<div id='mycom'>";
+	   				comments += replylist.replycontent;
+	   				comments += "</div>";
 	   				comments += "</span>";
-	   				comments += "</div>";
-	   				comments += "<div id='mycom'>";
-	   				comments += "<font>" + result[i].replycontent + "</font>";
-	   				comments += "</div>";
+	   				
 	   				comments += "<hr>";
-					$("#replylist").html(comments);
-
+	   				$("#replylist").html(comments);
 				}
+				
 			}
    			
    			   			
    		}
 	});
-});
+}
+//댓글 삭제
+function replyDelete(replynum){
+	var pnum = $('input[name=pnum]').val();
+	var num = replynum;
+	var deleteCheck = confirm("댓글을 삭제하시겠습니까?");
+	
+	if (deleteCheck) {
+		$.ajax({
+			url : "./ReplyDelete",
+	   		type : "POST",
+	   		data : {
+	   			"pnum" : pnum,
+	   			"num" : num
+	   			},
+	   		success : function(result){
+	   			replylist(num);
+	   		}
+		});
+	}
+	
+}
 
+//댓글 입력 시 공백이 있는지 확인 후 입력
+function replyInsertCheck(){
+	var replycontent = $("#replycontent").val();
+	if (replycontent.replace(/\s|   /gi, "").length == 0) {
+		alert("댓글을 작성해주세요!");
+	}else {
+		replyInsert();
+	}
+}
+//댓글 입력
+function replyInsert(){
+	var pnum = $('input[name=pnum]').val();
+	var replycontent = $("#replycontent").val();
+	var replywriter = $("#replywriter").val();
 
+	$.ajax({
+		url : "./ReplyInsert",
+   		type : "POST",
+   		data : {
+   			"pnum" : pnum,
+   			"replycontent" : replycontent,
+   			"replywriter" : replywriter
+   			},
+   		success : function(result){
+   			$("#replycontent").val('');
+   			replylist();
+   		}
+	});
+}
 
+//댓글 수정 형식 => textarea로 변경되어 수정을 할 수 있음
+function replyUpdate(replynum, replywriter, replyday, replycon){
+	console.log("수정하자");
+	var pnum = $('input[name=pnum]').val();
+	var num = replynum;
+	var con = replycon
+	var recomments = "";
+
+	recomments += '<div>';
+	recomments += '작성자 : ' + replywriter;
+	recomments += '&nbsp;&nbsp;';
+	recomments += " | ";
+	recomments += '&nbsp;&nbsp;';
+	recomments += replyday;
+	recomments += '<br><br>';
+	recomments += '<textarea rows="5" cols="100" id="replycontentUpdate">';
+	recomments += replycon;
+	recomments += '</textarea>';
+	recomments += '<br><br>';
+	recomments += '<span><button type="button" id="retouchreplyBT" onclick="replyUpdateBtn(' + replynum +',\''+ replywriter +'\',\''+ replyday +'\')">수정완료</button></span>';
+	recomments += '&nbsp;&nbsp;&nbsp;';
+	recomments += '<span><button type="button" id="deletepostreplyBT" onclick="replylist()">취소</button></span>';
+	recomments += '</div>';
+	$("#comwriter"+replynum).replaceWith(recomments);
+}
+//댓글 수정
+function replyUpdateBtn(replynum, replywriter, replyday){
+	var pnum = $('input[name=pnum]').val();
+	var replycontent = $("#replycontentUpdate").val();
+	
+	var updateCheck = confirm("댓글을 수정하시겠습니까?");
+	if (updateCheck) {
+		$.ajax({
+			url : "./ReplyUpdate",
+	   		type : "POST",
+	   		data : {
+	   			"pnum" : pnum,
+	   			"replynum" : replynum,
+	   			"replywriter" : replywriter,
+	   			"replyday" : replyday,
+	   			"replycontent" : replycontent
+	   			},
+	   		success : function(result){
+	   			replylist();
+	   		}
+		});
+	}else {
+		replylist();
+	}
+	
+}
 </script>
 </head>
 <body id="body-pd">
@@ -72,7 +192,7 @@ $(document).ready(function(){
 					 <span class="nav_name">홈</span>
 					</a> 
 
-
+	
     					<c:if test="${sessionScope.seman eq 1}">  
        						<a href="./MemberSelectAll" class="nav__link">
 					 		 <ion-icon name="people-outline" class="nav__icon"></ion-icon>
@@ -168,31 +288,28 @@ $(document).ready(function(){
 	</div>
 	
  </form>
- <!-- 댓글 : 나중에 만들거임-->
  
   <div class="write-comment">
 	<fieldset>
 	
 	<div class="con">
-	<form action="./ReplyInsert" method="post">
 		<div id="comment">
 		 <font> 답글 </font>
 		</div>		
 		<div>
-		<input type="hidden" name="replywriter" id="replywriter" value="${sessionScope.senic }">
+		<input type="hidden" name="replywriter" id="replywriter" value="${sessionScope.senic}">
 		<input type="hidden" name="pnum" id="pnum" value="${postSelectDetail.postnum}">
 		<input type="hidden" id="replyday" name="replyday">
 		 <span> <textarea rows="5" cols="100" id="replycontent" name="replycontent"></textarea> </span> 
 		</div>
 		<div>
-		 <span> <input type="submit" value="댓글작성" class="comsub"></span>
+		 <span> <input type="button" onclick="replyInsertCheck()" value="댓글작성" class="comsub"></span>
 		 <span> <button type="button" onclick="location.href='./PostSelectAll'" class="list">글 목록</button> </span>	 
 		</div>
 		<hr>
-	</form>
+		<!-- 댓글 목록 -->
 		<div id="replylist"></div>
 	</div>
-	
 	</fieldset>
 	</div>
 	

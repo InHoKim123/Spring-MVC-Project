@@ -78,7 +78,7 @@ public class PostController {
 		postService.PostDelete(postDTO.getPostnum());
 		return "./post/post_delete_view";
 	}
-	
+	//댓글 불러오기
 	@RequestMapping(value = "Reply", method = RequestMethod.GET)
 	@ResponseBody
 	public List<ReplyDTO> replylist(@RequestParam("pnum") int pnum) {
@@ -89,12 +89,32 @@ public class PostController {
 		return replyService.replylist(replyDTO);
 		
 	}
-	
+	//댓글 입력
 	@RequestMapping(value = "ReplyInsert", method = RequestMethod.POST)
-	public String insertReply(@RequestParam("pnum") int pnum, ReplyDTO replyDTO) {
+	@ResponseBody
+	public String insertReply(@RequestParam("pnum") int pnum, @RequestParam("replycontent") String replycontent, @RequestParam("replywriter") String replywriter, ReplyDTO replyDTO) {
+		replyDTO.setPnum(pnum);
+		replyDTO.setReplycontent(replycontent);
+		replyDTO.setReplywriter(replywriter);
 		replyService.insertReply(replyDTO);
 		return "redirect:/PostSelectDetail?postnum=" + pnum;
 	}
-	
+	//댓글 지우기
+	@RequestMapping(value = "ReplyDelete", method = RequestMethod.POST)
+	@ResponseBody
+	public String deleteReply(@RequestParam("pnum") int pnum, @RequestParam("num")int num) {
+		logger.info("num : " + num);
+		replyService.deleteReply(num);
+		return "redirect:/PostSelectDetail?postnum=" + pnum;	
+	}
+	//댓글 수정
+	@RequestMapping(value = "ReplyUpdate", method = RequestMethod.POST)
+	@ResponseBody
+	public String updateReply(ReplyDTO replyDTO, @RequestParam("replynum") int replynum, @RequestParam("replycontent") String replycontent, @RequestParam("pnum") int pnum) {		
+		replyDTO.setReplycontent(replycontent);
+		replyDTO.setReplynum(replynum);
+		replyService.updateReply(replyDTO);
+		return "redirect:/PostSelectDetail?postnum=" + pnum;
+	}
 
 }

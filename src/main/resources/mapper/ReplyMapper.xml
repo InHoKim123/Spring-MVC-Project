@@ -5,9 +5,19 @@
 		select pnum, replynum, replycontent, replywriter, replyday
 		from reply
 		where pnum = #{pnum}
+		order by replyday desc
 	</select>
 	<insert id="ReplyInsert" parameterType="ReplyDTO">
 		insert into reply(pnum, replynum, replycontent, replywriter, replyday)
 		values(#{pnum}, reply_seq.nextval, #{replycontent}, #{replywriter}, sysdate)
 	</insert>
+	<delete id="ReplyDelete" parameterType="ReplyDTO">
+		delete from reply
+		where replynum = #{replynum}
+	</delete>
+	<update id="ReplyUpdate" parameterType="ReplyDTO">
+		update reply 
+		set replycontent = #{replycontent}
+		where replynum = #{replynum}
+	</update>
 </mapper>

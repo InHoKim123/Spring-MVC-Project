@@ -22,4 +22,11 @@ public class ReplyService {
 		replyDAO.insertReply(replyDTO);
 	}
 	
+	public void deleteReply(int replynum) {
+		replyDAO.deleteReply(replynum);
+	}
+	
+	public void updateReply(ReplyDTO replyDTO) {
+		replyDAO.updateReply(replyDTO);
+	}
 }

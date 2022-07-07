@@ -23,5 +23,12 @@ public class ReplyDAO {
 		sqlSessionTemplate.insert("ReplyInsert", replyDTO);
 	}
 	
+	public void deleteReply(int replynum) {
+		sqlSessionTemplate.delete("ReplyDelete", replynum);
+	}
+	
+	public void updateReply(ReplyDTO replyDTO) {
+		sqlSessionTemplate.update("ReplyUpdate", replyDTO);
+	}
 
 }
