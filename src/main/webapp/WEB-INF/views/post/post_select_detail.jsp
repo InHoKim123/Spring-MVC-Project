@@ -86,7 +86,7 @@ function replyDelete(replynum){
 	   			"num" : num
 	   			},
 	   		success : function(result){
-	   			replylist(num);
+	   			replylist();
 	   		}
 		});
 	}
