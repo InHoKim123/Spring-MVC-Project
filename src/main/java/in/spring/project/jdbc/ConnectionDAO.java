@@ -1,3 +1,5 @@
+//데이터베이스 연결 확인
+
 package in.spring.project.jdbc;
 
 import java.sql.Connection;
