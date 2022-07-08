@@ -85,7 +85,7 @@ public class PostController {
 		ReplyDTO replyDTO = new ReplyDTO();
 		//dto에 글 번호 저장
 		replyDTO.setPnum(pnum);
-		//댓글 가져오기
+		//글 번호에 해당하는 댓글 가져오기
 		return replyService.replylist(replyDTO);
 		
 	}
