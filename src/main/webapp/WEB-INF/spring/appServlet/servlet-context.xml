@@ -47,7 +47,7 @@
 
 	
 
-
+	<!-- 인터셉터 -->
 	<interceptors>
 		<interceptor>
 			<mapping path="/PostSelectAll" />
